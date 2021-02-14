@@ -5,4 +5,4 @@
 </p>
 
 
-<b>Merhabalar</b>  <p>Bu repo Yazılım Geliştirici Yetiştirme Kampı'nda yapılan çalışmaları kapsayan Araç Kiralama Projesidir</p>
+<b>Merhabalar</b>  <p>Bu Çalışma Yazılım Geliştirici Yetiştirme Kampı'nda yapılan Araç Kiralama Projesidir</p>
