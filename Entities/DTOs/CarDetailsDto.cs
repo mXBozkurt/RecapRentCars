@@ -3,13 +3,16 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Entities.CarDetailsDto
+namespace Entities.DTOs
 {
-    public class CarDetailsDto:ICarDto
+    public class CarDetailsDto:IDto
     {
         public int Id { get; set; }
         public string BrandName { get; set; }
         public int DailyPrice { get; set; }
+        public string ColorName { get; set; }
+        public string Description { get; set; }
+        public int ModelYear { get; set; }
 
 
     }

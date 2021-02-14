@@ -1,6 +1,8 @@
 ﻿using Business.Abstract;
+using Business.Constants;
+using Core.Utilities.Results;
 using DataAccess.Abstract;
-using Entities.CarDetailsDto;
+using Entities.DTOs;
 using Entities.Concrete;
 using System;
 using System.Collections.Generic;
@@ -17,29 +19,56 @@ namespace Business.Concrete
             _carDal = carDal;
         }
 
-        public IEnumerable<object> GetCars()
+
+        public IDataResult<List<Car>> DailyPrice(decimal min,decimal max)
         {
-            throw new NotImplementedException();
+            return new SuccessDataResult<List<Car>>(_carDal.GetAll(p=>p.DailyPrice>=min&&p.DailyPrice<=max));
         }
 
-        public List<Car> DailyPrice(decimal min,decimal max)
+        public IDataResult<List<Car>> GetById(int id)
         {
-            return _carDal.GetAll(p=>p.DailyPrice>=min&&p.DailyPrice<=max);
+            return new SuccessDataResult<List<Car>>(_carDal.GetAll(p=>p.Id==id));
         }
 
-        public List<Car> GetById(int id)
+        public IDataResult<List<Car>> GetAll()
         {
-            return _carDal.GetAll(p=>p.Id==id);
+            if (DateTime.Now.Hour==22)
+            {
+                return new ErrorDataResult<List<Car>>(Messages.MaintenanceTime);
+            }
+            return new SuccessDataResult<List<Car>>( _carDal.GetAll(),Messages.CarsListed);
         }
 
-        public List<Car> GetAll()
+        public IDataResult<List<CarDetailsDto>> GetCarDetails()
         {
-            return _carDal.GetAll();
+            return new SuccessDataResult<List<CarDetailsDto>>(_carDal.GetCarDetails());
         }
 
-        public List<CarDetailsDto> GetCarDetails()
+        public IResult Add(Car car)
         {
-            return _carDal.GetCarDetails();
+            _carDal.Add(car);
+            return new SuccessResult(Messages.CarAdded);
+        }
+
+        public IResult Delete(Car car)
+        {
+            _carDal.Delete(car);
+            return new SuccessResult(Messages.CarDeleted);
+        }
+
+        public IResult Update(Car car)
+        {
+            _carDal.Update(car);
+            return new SuccessResult(Messages.CarUpdated);
+        }
+        public IDataResult<List<Car>> GetCarsByBrandId(int id)
+        {
+            return new SuccessDataResult<List<Car>>(_carDal.GetAll(p=>p.BrandId==id));
+        }
+
+        public IDataResult<List<Car>> GetCarsByColorId(int id)
+        {
+            return new SuccessDataResult<List<Car>>(_carDal.GetAll(p=>p.ColorId==id));
         }
     }
 }
