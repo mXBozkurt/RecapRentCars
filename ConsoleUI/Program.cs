@@ -13,7 +13,7 @@ namespace ConsoleUI
             var result = carManager.GetCarDetails();
             foreach (var car in result.Data)
             {
-                Console.WriteLine(car.BrandName + " / "+car.DailyPrice+" / "+car.Description);
+                Console.WriteLine(car.BrandName + " / " + car.DailyPrice + " / " + car.Description);
             }
 
         }
