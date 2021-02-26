@@ -13,11 +13,11 @@ namespace Core.Utilities.Results
 
         public Result(bool succes)
         {
-            Succes = succes;
+            Success = succes;
         }
         
         
-        public bool Succes { get; }
+        public bool Success { get; }
         public string Message { get; }
     }
 }

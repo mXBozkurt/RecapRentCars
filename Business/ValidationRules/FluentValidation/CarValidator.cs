@@ -14,13 +14,7 @@ namespace Business.ValidationRules.FluentValidation
             RuleFor(p => p.ColorId).NotEmpty();
             RuleFor(p => p.Description).NotEmpty();
             RuleFor(p => p.DailyPrice).GreaterThan(0);
-            RuleFor(p => p.Description).Must(StartWithMX).WithMessage("Ürün Açıklamaları mx ile başlamalı");
 
-        }
-
-        private bool StartWithMX(string arg)
-        {
-            return arg.StartsWith("mx");
         }
     }
 }

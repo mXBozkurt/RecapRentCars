@@ -24,7 +24,7 @@ namespace WebAPI.Controllers
         public IActionResult Getall()
         {
             var result = _brandService.GetAll();
-            if (result.Succes)
+            if (result.Success)
             {
                 return Ok(result);
             }
@@ -34,7 +34,7 @@ namespace WebAPI.Controllers
         public IActionResult GetById(int id)
         {
             var result = _brandService.GetById(id);
-            if (result.Succes)
+            if (result.Success)
             {
                 return Ok(result);
             }
@@ -45,7 +45,7 @@ namespace WebAPI.Controllers
         public IActionResult Add(Brand brand)
         {
             var result = _brandService.Add(brand);
-            if (result.Succes)
+            if (result.Success)
             {
                 return Ok(result);
             }
@@ -56,7 +56,7 @@ namespace WebAPI.Controllers
         public IActionResult Delete(Brand brand)
         {
             var result = _brandService.Delete(brand);
-            if (result.Succes)
+            if (result.Success)
             {
                 return Ok(result);
             }
@@ -67,7 +67,7 @@ namespace WebAPI.Controllers
         public IActionResult Update(Brand brand)
         {
             var result = _brandService.Update(brand);
-            if (result.Succes)
+            if (result.Success)
             {
                 return Ok(result);
             }

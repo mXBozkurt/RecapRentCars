@@ -40,6 +40,12 @@ namespace Business.Constants
         public static string CustomerUpdated = "Müşteri Güncellendi";
         public static string CompanyNameInvalid = "Şirket adı geçersiz";
 
+        public static string CarImageAdded = "Araba Resmi Eklendi";
+        public static string CarImageListed = "Araba Resmi Listelendi";
+        public static string CarImageDeleted = "Araba Resmi Silindi";
+        public static string CarImageUpdated = "Araba Resmi Güncellendi";
 
+        public static string FailAddedImageLimit { get; internal set; }
+        public static string ImagesAdded { get; internal set; }
     }
 }

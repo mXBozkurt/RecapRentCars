@@ -24,7 +24,7 @@ namespace WebAPI.Controllers
         public IActionResult Getall()
         {
             var result = _userService.GetAll();
-            if (result.Succes)
+            if (result.Success)
             {
                 return Ok(result);
             }
@@ -34,7 +34,7 @@ namespace WebAPI.Controllers
         public IActionResult GetById(int id)
         {
             var result = _userService.GetById(id);
-            if (result.Succes)
+            if (result.Success)
             {
                 return Ok(result);
             }
@@ -45,7 +45,7 @@ namespace WebAPI.Controllers
         public IActionResult Add(User user)
         {
             var result = _userService.Add(user);
-            if (result.Succes)
+            if (result.Success)
             {
                 return Ok(result);
             }
@@ -56,7 +56,7 @@ namespace WebAPI.Controllers
         public IActionResult Delete(User user)
         {
             var result = _userService.Delete(user);
-            if (result.Succes)
+            if (result.Success)
             {
                 return Ok(result);
             }
@@ -67,7 +67,7 @@ namespace WebAPI.Controllers
         public IActionResult Update(User user)
         {
             var result = _userService.Update(user);
-            if (result.Succes)
+            if (result.Success)
             {
                 return Ok(result);
             }
