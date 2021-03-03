@@ -24,7 +24,7 @@ namespace Business.Concrete
         [ValidationAspect(typeof(BrandValidator))]
         public IResult Add(CarImage carImages)
         {
-            var result = BusinessRules.Run(CheckCountOfCarImages(carImages.CarImageId));
+            var result = BusinessRules.Run(CheckCountOfCarImages(carImages.Id));
             if (result != null)
             {
                 return result;
@@ -41,7 +41,7 @@ namespace Business.Concrete
 
         public IDataResult<CarImage> Get(int id)
         {
-            return new SuccessDataResult<CarImage>(_carImagesDal.Get(p=>p.CarImageId==id));
+            return new SuccessDataResult<CarImage>(_carImagesDal.Get(p=>p.Id==id));
         }
 
         public IDataResult<List<CarImage>> GetAll()
@@ -51,13 +51,13 @@ namespace Business.Concrete
 
         public IDataResult<CarImage> GetByID(int ID)
         {
-            return new SuccessDataResult<CarImage>(_carImagesDal.Get(c => c.CarImageId == ID), Messages.CarImageListed);
+            return new SuccessDataResult<CarImage>(_carImagesDal.Get(c => c.Id == ID), Messages.CarImageListed);
         }
 
-        public IDataResult<List<string>> GetCarImagesByCarID(int carID)
+        public IDataResult<List<string>> GetImagesByCarID(int id)
         {
             List<string> list = new List<string>();
-            var result = _carImagesDal.GetAll(c => c.CarImageId == carID);
+            var result = _carImagesDal.GetAll(c => c.Id == id);
             if (result.Count == 0)
             {
                 return new SuccessDataResult<List<string>>(new List<string> { @"CarImages\default.jpg" }, Messages.CarImageListed);
@@ -69,11 +69,6 @@ namespace Business.Concrete
             return new SuccessDataResult<List<string>>(list, Messages.CarImageListed);
         }
 
-        public IDataResult<List<CarImage>> GetImagesByCarId(int id)
-        {
-            return new SuccessDataResult<List<CarImage>>(_carImagesDal.GetAll(p => p.CarImageId == id));
-        }
-
         [ValidationAspect(typeof(BrandValidator))]
         public IResult Update(CarImage carImages)
         {
@@ -83,7 +78,7 @@ namespace Business.Concrete
 
         private IResult CheckCountOfCarImages(int carID)
         {
-            var result = _carImagesDal.GetAll(c => c.CarImageId == carID).Count;
+            var result = _carImagesDal.GetAll(c => c.Id == carID).Count;
             if (result > 5)
             {
                 return new ErrorResult(Messages.CarImageCountError);

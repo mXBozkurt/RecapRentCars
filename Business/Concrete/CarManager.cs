@@ -29,7 +29,7 @@ namespace Business.Concrete
 
         public IDataResult<List<Car>> GetById(int id)
         {
-            return new SuccessDataResult<List<Car>>(_carDal.GetAll(p=>p.CarId==id));
+            return new SuccessDataResult<List<Car>>(_carDal.GetAll(p=>p.Id==id));
         }
 
         public IDataResult<List<Car>> GetAll()

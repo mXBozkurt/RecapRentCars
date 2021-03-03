@@ -1,4 +1,5 @@
-﻿using Entities.Concrete;
+﻿using Core.Entities.Concrete;
+using Entities.Concrete;
 using FluentValidation;
 using System;
 using System.Collections.Generic;
@@ -14,8 +15,6 @@ namespace Business.ValidationRules.FluentValidation
             RuleFor(p => p.FirstName).NotEmpty();
             RuleFor(p => p.LastName).NotNull();
             RuleFor(p => p.LastName).NotEmpty();
-            RuleFor(p => p.Password).NotEmpty();
-            RuleFor(p => p.Password).MinimumLength(6);
             RuleFor(p => p.EMail).Must(MailCheck).When(p => p.EMail != null).WithMessage("IsValid Mail");
             RuleFor(p => p.EMail).NotEmpty();
             RuleFor(p => p.EMail).NotNull();

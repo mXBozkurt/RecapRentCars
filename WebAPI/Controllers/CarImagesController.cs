@@ -35,7 +35,7 @@ namespace WebAPI.Controllers
         [HttpGet("getbyid")]
         public IActionResult GetById(int id)
         {
-            var result = _carImageService.GetImagesByCarId(id);
+            var result = _carImageService.GetImagesByCarID(id);
             if (result.Success)
             {
                 return Ok(result);
@@ -46,7 +46,7 @@ namespace WebAPI.Controllers
         [HttpGet("getbycarid")]
         public IActionResult GetByImageByCarId(int id)
         {
-            var result = _carImageService.GetImagesByCarId(id);
+            var result = _carImageService.GetImagesByCarID(id);
             if (result.Success)
             {
                 return Ok(result);
@@ -75,7 +75,7 @@ namespace WebAPI.Controllers
             return BadRequest(result);
         }
 
-        [HttpPost("update")]
+        [HttpPost("delete")]
         public IActionResult Delete(int id)
         {
             var data = _carImageService.Get(id);

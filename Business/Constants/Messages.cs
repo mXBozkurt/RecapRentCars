@@ -48,5 +48,6 @@ namespace Business.Constants
         public static string FailAddedImageLimit { get; internal set; }
         public static string ImagesAdded { get; internal set; }
         public static string CarImageCountError { get; internal set; }
+        public static string ClaimsListed { get; internal set; }
     }
 }

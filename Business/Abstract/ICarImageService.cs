@@ -13,6 +13,6 @@ namespace Business.Abstract
         IResult Add(CarImage carImage);
         IResult Update(CarImage carImage);
         IResult Delete(CarImage carImage);
-        IDataResult<List<CarImage>> GetImagesByCarId(int id);
+        IDataResult<List<string>> GetImagesByCarID(int id);
     }
 }
